@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+// RandI32Slice generates a sorted int32 slice of `n` elts in it, starting from
+// `min`, and every two adjacent elts differ from 0 to `step`.
 func RandI32Slice(min, n, step int32) []int32 {
 	rnd := rand.New(rand.NewSource(time.Now().Unix()))
 
