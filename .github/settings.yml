@@ -1,0 +1,8 @@
+_extends: gh-config
+
+
+repository:
+  name: testutil
+  description: A collection of util func for testing
+  homepage: https://openacid.github.io/
+  topics: go, golang, test
