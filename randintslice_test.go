@@ -50,3 +50,47 @@ func TestRandU32Slice(t *testing.T) {
 	}
 
 }
+
+func TestRandI64Slice(t *testing.T) {
+
+	ta := require.New(t)
+
+	i64s := testutil.RandI64Slice(10, 100, 3)
+
+	ta.Equal(100, len(i64s))
+	ta.GreaterOrEqual(i64s[0], int64(10))
+
+	for i, i64 := range i64s {
+		if i == 0 {
+			continue
+		}
+
+		ta.GreaterOrEqual(i64, i64s[i-1])
+		ta.GreaterOrEqual(i64-i64s[i-1], int64(0))
+		ta.LessOrEqual(i64-i64s[i-1], int64(3))
+
+	}
+
+}
+
+func TestRandU64Slice(t *testing.T) {
+
+	ta := require.New(t)
+
+	u64s := testutil.RandU64Slice(10, 100, 3)
+
+	ta.Equal(100, len(u64s))
+	ta.GreaterOrEqual(u64s[0], uint64(10))
+
+	for i, u64 := range u64s {
+		if i == 0 {
+			continue
+		}
+
+		ta.GreaterOrEqual(u64, u64s[i-1])
+		ta.GreaterOrEqual(u64-u64s[i-1], uint64(0))
+		ta.LessOrEqual(u64-u64s[i-1], uint64(3))
+
+	}
+
+}
